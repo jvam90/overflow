@@ -5,6 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.AddServiceDefaults(); // para poder usar os métodos de extensão
+builder.Services.AddAuthentication()
+    .AddKeycloakJwtBearer("keycloak", "overflow", options =>
+    {
+        options.RequireHttpsMetadata = false;
+        options.Audience = "overflow";
+    });
 
 var app = builder.Build();
 
@@ -14,10 +20,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseAuthorization();
-
 app.MapControllers();
 
-app.MapDefaultEndpoints();
+app.MapDefaultEndpoints(); //mapeia endpoints dos serviços default, como health, alive, etc.
 
 app.Run();
