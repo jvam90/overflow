@@ -15,4 +15,8 @@
         <PackageReference Include="Aspire.Hosting.Keycloak" Version="9.3.1-preview.1.25305.6" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\QuestionService\QuestionService.csproj" />
+    </ItemGroup>
+
 </Project>
