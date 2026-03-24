@@ -20,8 +20,4 @@
       <ProjectReference Include="..\Overflow.ServiceDefaults\Overflow.ServiceDefaults.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Data\" />
-    </ItemGroup>
-
 </Project>
