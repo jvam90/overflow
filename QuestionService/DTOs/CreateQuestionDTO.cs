@@ -1,3 +1,9 @@
+using System.ComponentModel.DataAnnotations;
+using QuestionService.Validators;
+
 namespace QuestionService.DTOs;
 
-public record CreateQuestionDTO(string Title, string Content, List<string> Tags);
+public record CreateQuestionDTO(
+    [Required]string Title, 
+    [Required]string Content, 
+    [Required][TagListValidator(1,5)] List<string> Tags);
